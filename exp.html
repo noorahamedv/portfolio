@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="images/favicon_generated.ico" type="image/x-icon">
+    <title>Resume | Noor Ahamed</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Resume of Noor Ahamed - Data Engineer & Analytics Professional">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --primary-color: #7359c6;
+        --secondary-color: #a853c5;
+        --dark-bg: #161221;
+        --text-color: #fff;
+        --secondary-text-color: #efece7;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--dark-bg);
+        background-image: url('images/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--text-color);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.0rem 4rem;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.243);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.blur {
+        backdrop-filter: blur(10px);
+        background-color: rgba(22, 18, 33, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      .logo {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links a i {
+        margin-right: 0.5rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Mobile menu */
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        z-index: 1001;
+        position: absolute;
+        right: 1.5rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      /* Page Header */
+      .page-header {
+        padding-top: 100px;
+        padding-bottom: 20px;
+        text-align: center;
+      }
+
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .page-subtitle {
+        font-size: 1.2rem;
+        color: var(--secondary-text-color);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Resume Section */
+      .resume-section {
+        padding: 2rem 3rem;
+        background-color: transparent;
+      }
+
+      .resume-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .resume-actions {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .resume-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        border: none;
+        border-radius: 0px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .resume-btn:hover {
+        background-color: var(--secondary-color);
+        transform: scale(1.15) translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .highlight {
+        color: var(--primary-color);
+      }
+
+      /* Resume Layout */
+      .resume-grid {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 3rem;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        overflow: hidden;
+        border: 3px solid var(--primary-color);
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .personal-info {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(11, 11, 11, 0.319);
+        padding: 2rem;
+        font-size: 0.9rem;
+        border-radius: 0px;
+        box-shadow: 0 10px 30px rgb(10, 10, 10);
+      }
+
+      .info-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .info-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--primary-color);
+      }
+
+      .info-list {
+       list-style: none;
+       padding-left: 0;
+      }
+
+      .info-list li {
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+      }
+
+     .info-list li i {
+       width: 25px;
+       color: var(--primary-color);
+       margin-right: 0.5rem;
+      }
+
+      .info-list li a {
+       color: var(--text-color);         /* Keep it consistent with your main text */
+       text-decoration: none;
+       transition: color 0.3s ease;
+      }
+
+      .info-list li a:hover {
+      color: var(--primary-color);      /* Highlight color on hover */
+      }
+
+      /* Right Side - Experience & Education */
+      .resume-main {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        background-color: rgba(11, 11, 11, 0.319);
+        padding: 3rem;
+        font-size: 0.9rem;
+        border-radius: 0px;
+        box-shadow: 0 10px 30px rgb(10, 10, 10);
+      }
+
+      .timeline {
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        height: calc(100% - 10px);
+        width: 2px;
+        background-color: rgba(115, 89, 198, 0.3);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 2.5rem;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -8px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        z-index: 1;
+      }
+
+      .timeline-date {
+        font-size: 0.8rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        padding: 0.2rem 0.8rem;
+        background-color: rgba(115, 89, 198, 0.1);
+        border-radius: 20px;
+      }
+
+      .timeline-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-company,
+      .timeline-university {
+        font-size: 1rem;
+        color: var(--secondary-text-color);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .timeline-company i,
+      .timeline-university i {
+        color: var(--primary-color);
+        font-size: 1rem;
+      }
+
+      .timeline-content {
+        color: var(--text-color);
+        font-weight: 400;
+      }
+
+      .timeline-content ul {
+        list-style: none;
+        margin-top: 0.5rem;
+      }
+
+      .timeline-content li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .timeline-content li::before {
+        content: "•";
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.2rem;
+      }
+
+      /* Social Section */
+      .social-section {
+        padding: 6rem;
+        text-align: center;
+      }
+
+      .social-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .social-heading {
+        font-size: 1.5rem;
+        margin-bottom: 0.05rem;
+        text-align: center;
+      }
+
+      .social-subtitle {
+        font-size: 1.01rem;
+        margin-bottom: 0.05rem;
+        color: var(--primary-color);
+        text-align: center;
+      }
+
+      .social-subtitle .highlight {
+        color: var(--primary-color);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 1;
+        margin: 0.5rem;
+        transform: translateX(-10px);
+      }
+
+      .social-links li {
+        margin: 0.9rem;
+      }
+
+      .social-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+        background-color: rgba(164, 145, 145, 0.1);
+        color: var(--text-color);
+        font-size: 1rem;
+        text-decoration: none;
+        transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        transform: scale(1.15) translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer */
+      .footer {
+        padding: 0.5rem 3rem;
+        background-color: rgba(22, 18, 33, 0.336);
+        text-align: center;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-text {
+        font-size: 0.9rem;
+        color: var(--text-color);
+      }
+
+      .footer-text.copyright {
+        margin-left: 0;
+      }
+
+      .footer-social {
+        display: flex;
+        list-style: none;
+      }
+
+      .footer-social li {
+        margin: 0 0.5rem;
+      }
+
+      .footer-social a {
+        color: var(--text-color);
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Particles container */
+      #tsparticles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -9999;
+        pointer-events: none;
+      }
+
+      /* Scrollbar Styling for WebKit Browsers */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(7, 7, 7, 0.982);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+      }
+
+      /* Scrollbar Styling for Firefox */
+      body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.05);
+      }
+
+      @keyframes throb {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0px var(--primary-color);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 20px var(--primary-color);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0px var(--primary-color);
+        }
+      }
+
+      .resume-btn.throb {
+        animation: throb 2s infinite ease-in-out;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1200px) {
+        .navbar {
+          padding: 1rem 2rem;
+        }
+
+        .resume-grid {
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .navbar {
+          padding: 1rem 2rem;
+        }
+
+        .nav-links li {
+          margin-left: 1rem;
+        }
+
+        .resume-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .profile-image {
+          width: 120px;
+          height: 120px;
+        }
+
+        .personal-info {
+          text-align: center;
+        }
+
+        .info-list li {
+          justify-content: center;
+        }
+
+        .social-section {
+          padding: 4rem 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .navbar {
+          padding: 1rem 1.5rem;
+          justify-content: space-between;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          flex-direction: column;
+          background-color: rgba(22, 18, 33, 0.95);
+          backdrop-filter: blur(10px);
+          width: 80%;
+          height: 100vh;
+          text-align: center;
+          justify-content: flex-start;
+          padding-top: 4rem;
+          transition: 0.3s ease;
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 1.5rem 0;
+        }
+
+        .nav-links a {
+          font-size: 1rem;
+          justify-content: center;
+        }
+
+        .page-header {
+          padding-top: 80px;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .resume-section {
+          padding: 2rem 1rem;
+        }
+
+        .resume-main {
+          padding: 2rem 1rem;
+        }
+
+        .timeline-title {
+          font-size: 1.1rem;
+        }
+
+        .footer-container {
+          flex-direction: column;
+        }
+
+        .footer-text {
+          margin-bottom: 1rem;
+        }
+
+        .footer-text.copyright {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .resume-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+
+        .timeline-date {
+          font-size: 0.7rem;
+        }
+
+        .timeline-title {
+          font-size: 1rem;
+        }
+
+        .timeline-company,
+        .timeline-university {
+          font-size: 0.9rem;
+        }
+
+        .timeline-content ul li {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">noor<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        <li><a href="resume.html" class="active"><i class="fas fa-file-alt"></i> Resume</a></li>
+      </ul>
+
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Particles Effect -->
+    <div id="tsparticles"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="resume-actions" style="margin-top: 20px;">
+        <a href="report/Resume.pdf" class="resume-btn throb" target="_blank">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </header>
+
+    <!-- Resume Section -->
+    <section class="resume-section">
+      <div class="resume-container">
+        <!-- Resume Content -->
+        <div class="resume-grid">
+          <!-- Left Side - Skills & Info -->
+          <div class="resume-sidebar">
+            <!-- Profile Image -->
+            <div class="profile-image">
+              <img src="images/author.png" alt="Noor Ahamed">
+            </div>
+
+            <!-- Personal Information -->
+            <div class="personal-info">
+              <h3 class="info-title">Personal <span class="highlight">Info</span></h3>
+              <ul class="info-list">
+                <li>
+                  <i class="fas fa-user"></i>
+                  <span>Noor Ahamed Vempalle</span>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:noorahamedv98@gmail.com"><span>noorahamedv98@gmail.com</span></a>
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i>
+                  <a href="tel:+16562148239"><span>+1 (656) 214-8239</span></a>
+                </li>
+                <li>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>United States of America</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Side - Experience & Education -->
+          <div class="resume-main">
+            <!-- Work Experience -->
+            
+
+            <div>
+              <h2 class="section-heading">My <span class="highlight">Education</span></h2>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">2023 - 2025</div>
+                  <h3 class="timeline-title">Master's in AI & Business Analytics</h3>
+                  <div class="timeline-university">
+                    <i class="fas fa-university"></i> University of South Florida, FL
+                  </div>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>Specialized in <span class="highlight">ML</span> applications for <span class="highlight">Business Intelligence</span> and data-driven decision making.</li>
+                      <li><strong>Relevant <span class="highlight">Coursework</span>:</strong> Machine Learning, Statistics with R, Database Management, Big Data Analytics, Cloud Computing, Data Visualization, Business Intelligence, Data Mining, System Design, Application Development.</li>
+
+
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="section-heading">Work <span class="highlight">Experience</span></h2>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">Dec 2020 - Aug 2023</div>
+                  <h3 class="timeline-title">Data Analyst/ Data Engineer </h3>
+                  <div class="timeline-company">
+                    <i class="fas fa-building"></i> Albertsons Companies Inc.
+                  </div>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>Managed <span class="highlight">data processing and analytics</span>, optimizing ETL pipelines in <span class="highlight">Snowflake and SQL</span>, reducing query execution time by <span class="highlight">60%</span>, and ensuring data accuracy and efficiency for large-scale datasets.</li>
+                      <li>Led data normalization and aggregation of <span class="highlight">10M+ records</span>, integrating data from structured and unstructured sources to support acquisition, sales, and securitization <span class="highlight">analytics</span>.</li>
+                      <li>Developed automated reports and analytics dashboards in <span class="highlight">Tableau and Power BI</span>, providing real-time insights into P&L performance, asset returns for stakeholders.</li>
+                      <li>Created advanced <span class="highlight">Excel-based</span> models, incorporating <span class="highlight">VLOOKUP</span>, <span class="highlight">INDEX/MATCH</span>, <span class="highlight">SUMPRODUCT</span>, and <span class="highlight">VBA automation</span> to enhance data validation, flow analysis, and performance tracking.</li>
+                      <li>Conducted model back-testing and assumption refinements, improving <span class="highlight">forecasting</span> accuracy and optimizing performance assessment strategies.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-date">Jun 2020 - Nov 2020</div>
+                  <h3 class="timeline-title">Intern</h3>
+                  <div class="timeline-company">
+                    <i class="fas fa-building"></i> Cognizant Technology Solutions
+                  </div>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>Assisted in data acquisition and transformation for grocery retail financing data, improving data processing <span class="highlight">efficiency</span> and reducing operational inefficiencies by 12%.</li>
+                      <li>Designed SQL-based data validation scripts to ensure <span class="highlight">data integrity</span> in <span class="highlight">ETL workflows</span>, reducing processing time from 20 to 8 minutes.</li>
+                      <li>Built interactive <span class="highlight">KPI dashboards</span> to analyze grocery price, delinquency trends, and warehouse financing performance, improving reporting turnaround time by <span class="highlight">65%</span>.</li>
+                      <li>Supported financial modeling teams in structuring scenario-based use cases and optimizing loan stratification <span class="highlight">methodologies</span>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div>
+              <h2 class="section-heading">My <span class="highlight">Certifications</span></h2>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">2025</div>
+                  <h3 class="timeline-title">AWS certified: Associate Data Engineer</h3>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>Demonstrated expertise in designing and implementing <span class="highlight">secure</span>, <span class="highlight">scalable</span>, and <span class="highlight">cost-effective</span> data pipelines on AWS.</li>
+                      <li>Skilled in leveraging services like AWS Glue, Redshift, S3, and Athena for data ingestion, transformation, storage, and analytics across <span class="highlight">modern cloud architectures</span>.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-date">2022</div>
+                  <h3 class="timeline-title">Microsoft Certified: Azure AI & Data, Power Platform</h3>
+                  <div class="timeline-content">
+                    <ul>
+                      <li>Certified in developing <span class="highlight">end-to-end</span> data and AI solutions using Microsoft Azure, including Azure Data Factory, Synapse Analytics, Cognitive Services, and Machine Learning.</li>
+                      <li>Demonstrated ability to design and deploy <span class="highlight">scalable pipelines</span>, perform <span class="highlight">advanced analytics</span>, and integrate <span class="highlight">AI-driven insights</span>.</li>
+                      <li>Proficient in using the Power <span class="highlight">Platform (Power BI, Power Apps, Power Automate)</span> to build low-code solutions, automate workflows, and create interactive dashboards for <span class="highlight">data-driven</span> decision-making.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Designed and Developed by Noor Ahamed</p>
+        <p class="footer-text copyright">Copyright &copy; 2025 NA</p>
+        <ul class="footer-social">
+          <li>
+            <a href="https://github.com/noorahamedv" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/noor-ahamed-vempalle/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Scroll-triggered navbar blur
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("blur");
+        } else {
+          navbar.classList.remove("blur");
+        }
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      function toggleMenu() {
+        navLinks.classList.toggle("active");
+      }
+
+      hamburger.addEventListener("click", toggleMenu);
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav-links") && !e.target.closest(".hamburger")) {
+          navLinks.classList.remove("active");
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js"></script>
+    <script>
+      // Initialize particles
+      tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        particles: {
+          number: {
+            value: 200, // Moderate amount of particles
+            density: {
+              enable: true,
+              value_area: 1200
+            }
+          },
+          color: {
+            value: ["#ffffff", "#7359c6"]
+          },
+          shape: {
+            type: ["circle", "square", "triangle","love"] // Various shapes for confetti effect
+          },
+          opacity: {
+            value: 100,
+            random: true
+          },
+          size: {
+            value: 1, // Smaller confetti size
+            random: true
+          },
+          move: {
+            enable: true,
+            speed: 0.5, // Slower falling effect
+            direction: "bottom",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: true
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "bubble" // Gentle floating on hover
+            },
+            onclick: {
+              enable: true,
+              mode: "attract" // Particles form a shape when clicked
+            },
+            resize: true
+          },
+          modes: {
+            bubble: {
+              distance: 0,
+              size: 3,
+              duration: 2,
+              opacity: 0.8
+            },
+            attract: {
+              distance: 250, // Particles gather into formation
+              duration: 1,
+              factor: 3
+            }
+          }
+        },
+        retina_detect: true
+      });
+    </script>
+  </body>
+</html>

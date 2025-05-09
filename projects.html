@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="images/favicon_generated.ico" type="image/x-icon">
+    <title>Projects | Noor Ahamed</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Portfolio Projects by Noor Ahamed - Data Engineer & Analytics Professional">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --primary-color: #7359c6;
+        --secondary-color: #a853c5;
+        --dark-bg: #161221;
+        --text-color: #fff;
+        --secondary-text-color: #efece7;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--dark-bg);
+        background-image: url('images/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--text-color);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.0rem 4rem;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.243);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.blur {
+        backdrop-filter: blur(10px);
+        background-color: rgba(22, 18, 33, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      .logo {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links a i {
+        margin-right: 0.5rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Hamburger menu */
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        z-index: 1001;
+        position: absolute;
+        right: 1.5rem;
+        top: .5rem;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      /* Page Header */
+      .page-header {
+        padding-top: 120px;
+        padding-bottom: 2rem;
+        text-align: center;
+      }
+
+      .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .page-subtitle {
+        font-size: 1.2rem;
+        color: var(--secondary-text-color);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Projects Section */
+      .projects-section {
+        padding: 3rem;
+      }
+
+      .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: rgba(11, 11, 11, 0.319);
+        padding: 2rem;
+        border-radius: 0px;
+        box-shadow: 0 10px 30px rgb(10, 10, 10);
+      }
+
+      .section-heading {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .highlight {
+        color: var(--primary-color);
+      }
+
+      /* Project Filter */
+      .filter-container {
+        margin-bottom: 2rem;
+      }
+
+      .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        list-style: none;
+      }
+
+      .filter-btn {
+        background-color: rgba(115, 89, 198, 0.1);
+        color: var(--secondary-text-color);
+        border: 1px solid var(--primary-color);
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover, .filter-btn.active {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+      }
+
+      /* Project Cards */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: rgba(22, 18, 33, 0.5);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-category {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.3rem 1rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .tech-tag {
+        background-color: rgba(168, 83, 197, 0.2);
+        color: var(--secondary-text-color);
+        padding: 0.2rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+      }
+
+      .project-description {
+        color: var(--secondary-text-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        padding: 0.5rem 1rem;
+        background-color: rgba(115, 89, 198, 0.2);
+        color: var(--text-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .project-link:hover {
+        background-color: var(--primary-color);
+      }
+
+      /* Footer */
+      .footer {
+        padding: 0.5rem 3rem;
+        background-color: rgba(22, 18, 33, 0.336);
+        text-align: center;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-text {
+        font-size: 0.9rem;
+        color: var(--text-color);
+      }
+
+      .footer-text.copyright {
+        margin-left: 0;
+      }
+
+      .footer-social {
+        display: flex;
+        list-style: none;
+      }
+
+      .footer-social li {
+        margin: 0 0.5rem;
+      }
+
+      .footer-social a {
+        color: var(--text-color);
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1200px) {
+        .page-title {
+          font-size: 2.5rem;
+        }
+
+        .section-heading {
+          font-size: 1.8rem;
+        }
+
+        .navbar {
+          padding: 1rem 2rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .navbar {
+          padding: 1rem 2rem;
+        }
+
+        .nav-links li {
+          margin-left: 1rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .projects-section {
+          padding: 4rem 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .navbar {
+          padding: 1rem 1.5rem;
+          justify-content: space-between;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          flex-direction: column;
+          background-color: rgba(22, 18, 33, 0.95);
+          backdrop-filter: blur(10px);
+          width: 80%;
+          height: 100vh;
+          text-align: center;
+          justify-content: flex-start;
+          padding-top: 4rem;
+          transition: 0.3s ease;
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 1.5rem 0;
+        }
+
+        .nav-links a {
+          font-size: 1rem;
+          justify-content: center;
+        }
+
+        .page-header {
+          padding-top: 100px;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .page-subtitle {
+          font-size: 1rem;
+          padding: 0 1rem;
+        }
+
+        .projects-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .filter-buttons {
+          justify-content: center;
+        }
+
+        .footer-container {
+          flex-direction: column;
+        }
+
+        .footer-text {
+          margin-bottom: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-title {
+          font-size: 1.6rem;
+        }
+
+        .page-subtitle {
+          font-size: 0.9rem;
+        }
+
+        .projects-section {
+          padding: 2rem 1rem;
+        }
+
+        .projects-container {
+          padding: 1.5rem 1rem;
+        }
+
+        .section-heading {
+          font-size: 1.3rem;
+        }
+
+        .filter-btn {
+          padding: 0.4rem 1rem;
+          font-size: 0.8rem;
+        }
+
+        .project-title {
+          font-size: 1.3rem;
+        }
+
+        .project-description {
+          font-size: 0.8rem;
+        }
+
+        .footer {
+          padding: 1rem;
+        }
+      }
+
+      /* Particles container */
+      #tsparticles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -9999;
+        pointer-events: none;
+      }
+
+      /* Scrollbar Styling for WebKit Browsers */
+      ::-webkit-scrollbar {
+         width: 6px;
+       }
+
+       ::-webkit-scrollbar-track {
+         background: rgba(7, 7, 7, 0.982);
+       }
+
+       ::-webkit-scrollbar-thumb {
+         background: var(--primary-color); /* You can change this to any color you want */
+         border-radius: 3px;
+       }
+
+       ::-webkit-scrollbar-thumb:hover {
+         background: var(--secondary-color); /* Color on hover */
+       }
+
+      /* Scrollbar Styling for Firefox */
+      body {
+       scrollbar-width: thin;
+       scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">noor<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="projects.html" class="active"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+      </ul>
+
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Particles Effect -->
+    <div id="tsparticles"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">My <span class="highlight">Projects</span></h1>
+      <p class="page-subtitle">
+        A showcase of my work in data engineering, analytics, and machine learning
+      </p>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <div class="projects-container">
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+          <ul class="filter-buttons">
+            <li><button class="filter-btn active" data-filter="all">All</button></li>
+            <li><button class="filter-btn" data-filter="data-engineering">Data Engineering</button></li>
+            <li><button class="filter-btn" data-filter="data-analytics">Data Analytics</button></li>
+            <li><button class="filter-btn" data-filter="machine-learning">Machine Learning</button></li>
+            <li><button class="filter-btn" data-filter="data-visualization">Data Visualization</button></li>
+            <li><button class="filter-btn" data-filter="networking">Networking</button></li>
+            <li><button class="filter-btn" data-filter="information-security">Information Security</button></li>
+            <li><button class="filter-btn" data-filter="data-warehousing">Data Warehousing</button></li>
+            <li><button class="filter-btn" data-filter="sql">SQL</button></li>
+            <li><button class="filter-btn" data-filter="python">Python</button></li>
+          </ul>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card" data-category="data-analytics data-engineering sql">
+            <div class="project-image">
+              <img src="images/bigquery.png" alt="Sales Analytics Dashboard">
+              <div class="project-category">BigQuery Analytics</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Sales & Customer Analytics with BigQuery</h3>
+              <div class="project-tech">
+                <span class="tech-tag">Google BigQuery</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">GCP</span>
+              </div>
+              <p class="project-description">
+                Designed a scalable data pipeline to analyze over <strong>10,000+ customer transactions</strong> using Google BigQuery. Integrated two structured datasets, performed SQL-based ETL to create a unified fact table, and extracted KPIs including <strong>top 5 product categories</strong>, <strong>gender-based revenue split</strong>, and <strong>regional mall performance</strong>. Results were visualized via BigQuery and exported to <strong>Google Sheets</strong> for real-time business reporting.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/noorahamedv/Sales_Customer_Analytics_BigQuery/tree/main" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="report/Project_Summary.pdf" class="project-link" target="_blank">
+                  <i class="fas fa-globe"></i> Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card" data-category="machine-learning data-engineering python">
+            <div class="project-image">
+              <img src="images/bank_marketing_dashboard.png" alt="Bank Marketing Prediction Project">
+              <div class="project-category">Machine Learning & BI</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Portuguese Bank Marketing Prediction</h3>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Data Engineering</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">Power BI</span>
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">SMOTE</span>
+              </div>
+              <p class="project-description">
+                Built an end-to-end machine learning pipeline to predict client subscription to term deposits using UCI bank marketing data. ETL included handling missing values, one-hot encoding, and SMOTE balancing. Trained Logistic Regression, Random Forest, and XGBoost. Developed Power BI dashboard with KPI cards, pie chart, score distribution, job-performance ribbon chart, and scatter plot for campaign optimization.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/noorahamedv/portuguese_bank-marketing-prediction-dashboard" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="report/PORTUGUESE Bank Marketing Prediction.pdf" class="project-link" target="_blank">
+                  <i class="fas fa-file-alt"></i> Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card" data-category="data-visualization sql python">
+            <div class="project-image">
+              <img src="images/ev.png" alt="EV Market Data Analysis">
+              <div class="project-category">Data Visualization</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">EV Market Data Analysis</h3>
+              <div class="project-tech">
+                <span class="tech-tag">Tableau</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Python</span>
+              </div>
+              <p class="project-description">
+                Built an interactive dashboard analyzing 500K+ data points to uncover EV adoption trends and infrastructure growth. Identified top 5 states in EV adoption, enabling data-driven policy planning and sustainability initiatives. Achieved 98% project satisfaction by delivering actionable insights through clean design and data storytelling.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/noorahamedv/EV-Market_Analysis" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="report/EV_Market_Data_Analysis_Final_Report.pdf" class="project-link" target="_blank">
+                  <i class="fas fa-file-alt"></i> Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card" data-category="networking">
+            <div class="project-image">
+              <img src="images/osi.png" alt="OSI Packet Analysis">
+              <div class="project-category">Packet Analysis</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">OSI Packet Analysis using Wireshark</h3>
+              <div class="project-tech">
+                <span class="tech-tag">Wireshark</span>
+                <span class="tech-tag">OSI Model</span>
+                <span class="tech-tag">PCAP</span>
+              </div>
+              <p class="project-description">
+                Analyzed real packet captures (InfiniBand, CIPSO, SIP) across OSI layers using Wireshark. Explored protocol behavior, ICMP diagnostics, and VoIP signaling. Visualized traffic patterns with I/O graphs and flowcharts. Provided insights into network security, protocol layering, and session behavior.
+              </p>
+              <div class="project-links">
+                <a href="report/OSI_Analysis.pdf" class="project-link" target="_blank">
+                  <i class="fas fa-file-alt"></i> Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card" data-category="information-security">
+            <div class="project-image">
+              <img src="images/mgm.png" alt="MGM Cyberattack Case Study">
+              <div class="project-category">Information Security</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">MGM Resorts Cyberattack Case Study</h3>
+              <div class="project-tech">
+                <span class="tech-tag">Cybersecurity</span>
+                <span class="tech-tag">Zero Trust</span>
+                <span class="tech-tag">NIST Framework</span>
+                <span class="tech-tag">Incident Response</span>
+              </div>
+              <p class="project-description">
+                Analyzed the 2023 ALPHV/BlackCat ransomware attack on MGM Resorts, identifying flaws in MFA, network segmentation, and human factors. Proposed a Zero Trust security model, policy-based prevention, and recovery strategy based on NIST standards and InfoSec best practices.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/noorahamedv/mgm-cyberattack-case-study" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="report/MGM_Cyberattack_Case_Study.pdf" class="project-link" target="_blank">
+                  <i class="fas fa-file-alt"></i> Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card" data-category="data-warehousing sql python">
+            <div class="project-image">
+              <img src="images/dw.png" alt="Stock Market Data Warehouse">
+              <div class="project-category">Data Warehousing</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Stock Market Data Warehouse</h3>
+              <div class="project-tech">
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OLAP</span>
+                <span class="tech-tag">Tableau</span>
+              </div>
+              <p class="project-description">
+                Designed and implemented a dimensional model for historical stock data analysis. Developed OLAP cubes for multi-level aggregation, correlation insights, and visualizations using Python and Tableau. Enabled investors and analysts to explore trends, market behavior, and trading volume performance.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/noorahamedv/stock-market-data-warehouse" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="report/Report_DW.pdf" class="project-link" target="_blank">
+                  <i class="fas fa-file-alt"></i> Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="project-card" data-category="nosql">
+            <div class="project-image">
+              <img src="images/mongodb.png" alt="MongoDB Banking System">
+              <div class="project-category">NoSQL / MongoDB</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Banking System Analytics using MongoDB Atlas</h3>
+              <div class="project-tech">
+                <span class="tech-tag">MongoDB Atlas</span>
+                <span class="tech-tag">NoSQL</span>
+                <span class="tech-tag">CRUD</span>
+                <span class="tech-tag">Aggregation</span>
+              </div>
+              <p class="project-description">
+                Designed a scalable NoSQL banking system with MongoDB Atlas. The project simulates real-world financial operations like deposits, withdrawals, and loans using collections for <strong>Customers, Accounts, Loans, and Transactions</strong>. Implemented CRUD and aggregation pipelines via MongoDB Playgrounds in VS Code. Also exported schemas to Word and collections to CSV using MongoDB Compass.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/noorahamedv/banking-mongodb-crud" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Designed and Developed by Noor Ahamed</p>
+        <p class="footer-text copyright">Copyright &copy; 2025 NA</p>
+        <ul class="footer-social">
+          <li>
+            <a href="https://github.com/noorahamedv" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/noor-ahamed-vempalle/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js"></script>
+    <script>
+      // Scroll-triggered navbar blur
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("blur");
+        } else {
+          navbar.classList.remove("blur");
+        }
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      function toggleMenu() {
+        navLinks.classList.toggle("active");
+      }
+
+      hamburger.addEventListener("click", toggleMenu);
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav-links") && !e.target.closest(".hamburger")) {
+          navLinks.classList.remove("active");
+        }
+      });
+
+      // Initialize particles
+      tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        particles: {
+          number: {
+            value: 200, // Moderate amount of particles
+            density: {
+              enable: true,
+              value_area: 1200
+            }
+          },
+          color: {
+            value: ["#ffffff", "#7359c6"]
+          },
+          shape: {
+            type: ["circle", "square", "triangle","love"] // Various shapes for confetti effect
+          },
+          opacity: {
+            value: 100,
+            random: true
+          },
+          size: {
+            value: 1, // Smaller confetti size
+            random: true
+          },
+          move: {
+            enable: true,
+            speed: 0.5, // Slower falling effect
+            direction: "bottom",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: true
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "bubble" // Gentle floating on hover
+            },
+            onclick: {
+              enable: true,
+              mode: "attract" // Particles form a shape when clicked
+            },
+            resize: true
+          },
+          modes: {
+            bubble: {
+              distance: 0,
+              size: 3,
+              duration: 2,
+              opacity: 0.8
+            },
+            attract: {
+              distance: 250, // Particles gather into formation
+              duration: 1,
+              factor: 3
+            }
+          }
+        },
+        retina_detect: true
+      });
+
+      // Project filtering
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener("click", function () {
+            // Remove active class from all buttons
+            filterBtns.forEach(btn => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+
+            projectCards.forEach(card => {
+              const categories = card.getAttribute("data-category").split(" ");
+              if (filterValue === "all" || categories.includes(filterValue)) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
